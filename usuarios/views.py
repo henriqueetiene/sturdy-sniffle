@@ -1,16 +1,16 @@
-from rest_framework import viewsets, permissions, generics
+from rest_framework import permissions, generics
+from django.contrib.auth.models import User
 
-from .models import Usuario
-from .serializers import UsuarioSerializer
+from .serializers import UserSerializer
 
 
 class UsuarioList(generics.ListCreateAPIView):
-    queryset = Usuario.objects.all()
-    serializer_class = UsuarioSerializer
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
     permission_classes = [permissions.IsAuthenticated]
 
 
 class UsuarioDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Usuario.objects.all()
-    serializer_class = UsuarioSerializer
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
     permission_classes = [permissions.IsAuthenticated]
