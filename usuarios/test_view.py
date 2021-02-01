@@ -5,8 +5,8 @@ from rest_framework import status
 
 class CreateUserTestCase(APITestCase):
     def setUp(self):
-        user = User.objects.create_superuser(username='admin', password='1234')
-        self.client.force_login(user=user)
+        user = User.objects.create_user(username='admin', password='1234')
+        self.client.force_login(user)
 
     def test_create_user(self):
         response = self.client.post('/usuarios/', {'username': 'henrique'})
